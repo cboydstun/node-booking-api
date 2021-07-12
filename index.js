@@ -33,5 +33,15 @@ app.use("/api/v2/users", userRouter)
 app.use("/api/v2/admin", adminRouter)
 app.use("/api/v2/booking", bookingRouter)
 
+//heroku links
+if (process.env.NODE_ENV === "production") {
+  //set static folder
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 //app listening
 app.listen(PORT, ()=>{console.log(`Server running at ${PORT}`)})
