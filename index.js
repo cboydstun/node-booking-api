@@ -37,4 +37,4 @@ app.use("/api/v2/booking", bookingRouter)
 app.get('/', (req, res) => {res.send('Hello World!')})
 
 //app listening
-app.listen(PORT, ()=>{console.log(`Server running at ${SERVER_PORT}`)})
+app.listen(SERVER_PORT, ()=>{console.log(`Server running at ${SERVER_PORT}`)})
