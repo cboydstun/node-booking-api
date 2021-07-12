@@ -9,7 +9,7 @@ require('dotenv').config();
 const app = express()
 
 //initalize port
-const PORT = process.env.SERVER_PORT || 5002;
+const SERVER_PORT = process.env.PORT || 5002;
 
 //initalize middleware
 app.use(express.json());
@@ -37,4 +37,4 @@ app.use("/api/v2/booking", bookingRouter)
 app.get('/', (req, res) => {res.send('Hello World!')})
 
 //app listening
-app.listen(PORT, ()=>{console.log(`Server running at ${PORT}`)})
+app.listen(PORT, ()=>{console.log(`Server running at ${SERVER_PORT}`)})
