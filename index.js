@@ -16,10 +16,8 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan(':method :url :response-time'))
 
-const ATLAS_URI = process.env.MONGO_URL
-
 //MonogoDB connect
-mongoose.connect(ATLAS_URI, {
+mongoose.connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
