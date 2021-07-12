@@ -49,9 +49,9 @@ router.post('/login', async (req, res) => {
 	const { email, password } = req.body
 	const admin = await Admin.findOne({ email }).lean()
 
-	if (!admin) {
-		return res.json({ status: 'error', error: 'Invalid email/password' })
-	}
+	// if (!admin) {
+	// 	return res.json({ status: 'error', error: 'Invalid email/password' })
+	// }
     try{
     if ( await bcrypt.compare(password, admin.password)) {
 		// the username, password combination is successful
