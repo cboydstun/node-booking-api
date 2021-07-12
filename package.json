@@ -1,0 +1,21 @@
+{
+  "name": "node-booking-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon index.js"
+  },
+  "repository": "https://github.com/cboydstun/node-booking-api.git",
+  "author": "Chris Boydstun <52934303+cboydstun@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
