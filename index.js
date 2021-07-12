@@ -29,9 +29,9 @@ const adminRouter = require('./routes/admin')
 const bookingRouter = require('./routes/booking')
 
 //initalize routes
-app.use("api/v2/users", userRouter)
-app.use("api/v2/admin", adminRouter)
-app.use*("api/v2/booking", bookingRouter)
+app.use("/api/v2/users", userRouter)
+app.use("/api/v2/admin", adminRouter)
+app.use("/api/v2/booking", bookingRouter)
 
 //app listening
 app.listen(PORT, ()=>{console.log(`Server running at ${PORT}`)})

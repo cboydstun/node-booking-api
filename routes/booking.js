@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 let Booking = require("../models/Booking");
 
-//get all the user bookings
+//@GET - /api/v2/booking/ - get all the user bookings
 router.get("/", async (req, res) => {
   try {
     const userbookings = await Booking.find();
@@ -12,8 +12,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get bookings by email
-router.get('/search/:email',async(req,res)=>{
+//@GET - /api/v2/booking/search/:email - get bookings by email
+router.get('/search/:email', async(req,res)=>{
   let regex = new RegExp(req.params.email,'i');
   try{
     const bookingByEmail = await Booking.find({email:regex});
@@ -23,8 +23,8 @@ router.get('/search/:email',async(req,res)=>{
   }
 })
 
-//register bookings
-router.post("/add", async (req, res) => {
+//@POST - /api/v2/booking/add - register new booking
+router.post("/add", async(req, res) => {
   const newUserbooking = new Booking({
     name: req.body.name,
     email: req.body.email,
@@ -44,7 +44,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
-//delete bookings
+//@DELETE - /api/v2/booking/:id - delete bookings by ID
 router.delete('/:id',async (req,res)=>{
   try{
     const deleteBooking = await Booking.remove({_id:req.params.id});

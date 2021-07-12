@@ -6,7 +6,7 @@ require("dotenv").config();
 
 let Admin = require("../models/Admin");
 
-//get the admins
+//@GET - '/api/v2/admin - get the admins
 router.get("/", async (req, res) => {
   try {
     const admins = await Admin.find();
@@ -16,8 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//register the admins
-
+//@POST - /api/v2/admin/add - register an admin
 router.post("/add", async (req, res) => {
   const newAdmin = new Admin({
     email: req.body.email,
@@ -45,17 +44,15 @@ router.post("/add", async (req, res) => {
 });
 
 
-//login the admins
+//@POST - /api/v2/admin/login - login an admin
 router.post('/login', async (req, res) => {
-	// const { username, password } = req.body
-
 	const { email, password } = req.body
 	const admin = await Admin.findOne({ email }).lean()
 
 	if (!admin) {
 		return res.json({ status: 'error', error: 'Invalid email/password' })
 	}
-try{
+    try{
     if ( await bcrypt.compare(password, admin.password)) {
 		// the username, password combination is successful
 
@@ -75,12 +72,10 @@ try{
 	}else{
         res.json({ status: 'error', error: 'Invalid password' })
     }
-}catch(error){
-    res.json({ status: 'error', error: 'Invalid email/password' })
+    }catch(error){
+        res.json({ status: 'error', error: 'Invalid email/password' })
 
-}
-	
-
+    }
 });
 
 module.exports = router;
