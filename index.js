@@ -17,7 +17,7 @@ app.use(cors());
 app.use(morgan(':method :url :response-time'))
 
 //MonogoDB connect
-mongoose.connect(MONGO_URL, {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
