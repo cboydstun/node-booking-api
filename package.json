@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start":"node index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install"
+    "start":"node index.js"
   },
   "repository": "https://github.com/cboydstun/node-booking-api.git",
   "author": "Chris Boydstun <52934303+cboydstun@users.noreply.github.com>",
